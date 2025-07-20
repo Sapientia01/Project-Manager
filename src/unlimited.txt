@@ -1,0 +1,230 @@
+know I want u to do the following. 
+ready all files. 
+make the UI user friendly, dark mode, modern and fully mobile responsive.
+
+for the functionality I want u do do the followings.
+
+1. When I receive value from textarea I want it with its full structures. including multiple spaces and new lines.
+2. I want for projects section
+      - to set starting date and the end(due) date.
+      - to set its tasks section fully functional 
+              - adding tasks and completing tasks
+              - adding due date and time for each tasks
+              - making tasks UI different if the task is completed and due time is passed
+      - to add section to attach the file.
+3. adding new component for analyzing and track the overall projects progress
+   - completed projects 
+   - due date passed projects
+   - for every projects also completed tasks, an so on.
+4. finally I want to store the over all data on localstorage.
+   here when ever I lunch my app I want to see if any data stored previously. else to continue as new.
+
+
+
+
+
+
+
+
+hey there . 
+I am using cursor AI to edit my previuse project.
+as its token is limited I want to to help me to generate full structured prompt.
+if u want to know about my project. 
+my project is Project Manager web application. I am using react and tailwind for my project.
+here is the prompt I wrote
+
+
+know I want u to do the following. 
+ready all files. 
+make the UI user friendly, dark mode, modern and fully mobile responsive.
+
+for the functionality I want u do do the followings.
+
+1. When I receive value from textarea I want it with its full structures. including multiple spaces and new lines.
+2. I want for projects section
+      - to set starting date and the end(due) date.
+      - to set its tasks section fully functional 
+              - adding tasks and completing tasks
+              - adding due date and time for each tasks
+              - making tasks UI different if the task is completed and due time is passed
+      - to add section to attach the file.
+3. adding new component for analyzing and track the overall projects progress
+   - completed projects 
+   - due date passed projects
+   - for every projects also completed tasks, an so on.
+4. finally I want to store the over all data on localstorage.
+   here when ever I lunch my app I want to see if any data stored previously. else to continue as new.
+
+now if if u have any additional suggestion on my project, hit me up.
+else ask me any possible question to know about my preferences and work on the prompt.
+
+
+
+
+
+
+
+
+
+
+# Project Manager Web App (React + Tailwind)  
+
+## **Core Requirements**  
+### **UI/Design**  
+- **Theme**:  
+  - Glassmorphism/Neumorphism style  
+  - Toggleable dark/light mode (saved in localStorage)  
+  - **Color Scheme**:  
+    - Dark: `#1E293B` (bg), `#334155` (cards), `#0EA5E1` (accent)  
+    - Light: `#F8FAFC` (bg), `#E2E8F0` (cards), `#0369A1` (accent)  
+- **Responsive**: Mobile-first, collapsible sidebars  
+
+### **Features**  
+1. **Project Management**  
+   - 📅 Calendar-style timeline (drag/drop date adjustment)  
+   - ⚠️ Past-due projects: Red border + "Overdue" badge  
+   - 📎 File attachments:  
+     - Thumbnail previews (images/PDFs) + download  
+     - Import/export projects as JSON  
+
+2. **Task System**  
+   - 🏷️ Priority tags: Low (gray), Medium (yellow), High (red)  
+   - ✅ Completed tasks:  
+     - Strikethrough + moved to "Completed" section  
+     - 🔴 Overdue tasks: Red highlight + warning icon  
+
+3. **Text Input**  
+   - 📝 Textareas preserve **exact** formatting (spaces/newlines)  
+
+4. **Analytics Dashboard**  
+   - 📊 Visual charts: Progress bars, task completion pie charts  
+   - 🔍 Filters: By date, project, priority  
+
+5. **Data Handling**  
+   - 💾 Auto-save to localStorage (projects/tasks/theme)  
+   - 🗑️ Delete projects/tasks (no full reset)  
+
+## **Optional Extras**  
+- ⌨️ Keyboard shortcuts (e.g., `Ctrl+S` to save)  
+- 🗂️ File size validation (e.g., max 5MB)  
+
+## **Tech Stack**  
+- React + Tailwind CSS  
+- Date-fns (date handling)  
+- Chart.js (analytics)  
+
+---
+
+
+
+
+
+
+
+
+
+
+
+You are an expert AI coding assistant working inside Cursor. Help me improve and complete my existing React + Tailwind-based solo-use Project Manager web application. Read all existing files. Then, based on the instructions below, refactor, redesign, and implement the full functionality.
+
+🔧 UI Requirements:
+1. Apply a modern **glassy (neumorphism-like)** design across the app.
+2. Implement a **dark/light mode toggle**, defaulting to dark mode.
+3. Ensure **full mobile responsiveness** with smooth layout behavior.
+4. For project timelines, include a **calendar-style visual UI**.
+   - Highlight **past-due projects** visually (e.g., red border or badge).
+5. For completed tasks:
+   - Display them with **strikethrough styling**.
+   - Group them separately from active tasks.
+6. Use visual elements like:
+   - **Progress bars** for individual projects/tasks.
+   - **Charts and graphs** for project analytics.
+   - Add **filtering options** by status, date, or project name.
+
+🧠 Functional Features:
+1. From the textarea, always receive input **with full structure preserved** (multiple spaces, new lines, etc.).
+2. In the **Projects** section:
+   - Add **start date** and **due date** fields.
+   - Add file attachment capability.
+   - Tasks should be fully functional:
+     - Add new task with task name, priority level, and due date/time.
+     - Mark tasks as completed.
+     - Change UI for tasks that are both completed and past due (e.g., dim background + strikethrough).
+3. Add a **dedicated analytics component**:
+   - Track number of completed vs. active projects.
+   - Show count of due-date-passed projects.
+   - For each project, show completed task ratio, overdue tasks, and more.
+   - Use progress bars, pie charts, and visual insights.
+4. **All data must persist in localStorage**:
+   - On app load, check for existing data and load it if present.
+   - If no data, start fresh.
+5. **Auto-save all changes** (no reset option). Allow delete only.
+6. **No subtask logic** or user collaboration features are required — this is a **solo-use project**.
+
+🎯 Optional Suggestions (only if time allows):
+- Add subtle animations/transitions for task status change.
+- Allow sorting tasks by priority or due date.
+
+📦 Technologies:
+- React (JSX)
+- Tailwind CSS (modern utility styling)
+
+
+
+
+
+
+
+
+
+
+
+
+# Project Manager Web App (React + Tailwind)  
+
+## **Core Requirements**  
+### **UI/Design**  
+- **Theme**:  
+  - Glassmorphism/Neumorphism style with:  
+    - Dark: `#1E293B` (bg), `#334155` (cards), `#0EA5E1` (accent)  
+    - Light: `#F8FAFC` (bg), `#E2E8F0` (cards), `#0369A1` (accent)  
+  - Toggleable dark/light mode (default: dark, saved in localStorage)  
+- **Responsive**: Mobile-first with collapsible sidebars  
+- **Visual Enhancements**:  
+  - Calendar-style timeline (interactive/Gantt-style) *(PENDING YOUR ANSWER)*  
+  - Past-due projects: Red border + "Overdue" badge  
+  - File attachment thumbnails (images/PDFs) + download  
+
+### **Functionality**  
+1. **Text Input**:  
+   - Preserve **exact** spaces/newlines in textareas  
+
+2. **Projects & Tasks**:  
+   - **Tasks**:  
+     - Priority system (Low/Medium/High with color-coding)  
+     - Completed: Strikethrough + moved to separate section  
+     - Overdue: Red highlight + warning icon  
+   - **Dates**: Start date + due date (with calendar UI)  
+   - **Files**: Import/export projects as JSON  
+
+3. **Analytics Dashboard**:  
+   - Charts: Progress bars, task completion pie charts  
+   - Filters: By date, project, priority  
+   - Metrics: Completed/active projects, overdue tasks  
+
+4. **Data Handling**:  
+   - Auto-save to localStorage (projects/tasks/theme)  
+   - Delete projects/tasks (no full reset)  
+
+## **Optional Enhancements**  
+- ⌨ Keyboard shortcuts (e.g., `Ctrl+S` to save)  
+- 🎨 Subtle animations for task completion  
+- 🔄 Sort tasks by priority/due date  
+
+## **Tech Stack**  
+- React + Tailwind CSS  
+- Date-fns (date handling)  
+- Chart.js (analytics)  
+- No backend (pure localStorage)  
+
+---

@@ -1,8 +1,13 @@
 import { useState } from "react";
+import SideBar from "./components/sideBar.jsx";
+import Header from "./components/header.jsx";
 import NoProject from "./components/noProject.jsx";
 import NewProject from "./components/newProject.jsx";
 import Project from "./components/project.jsx";
+import { ThemeProvider, useTheme } from "./store/themeContext.jsx";
 
+//
+//
 function selectProject(projects, title) {
   let selectedproject;
   for (const project of projects) {
@@ -13,68 +18,109 @@ function selectProject(projects, title) {
   return selectedproject;
 }
 
-function App() {
-  const [selectedTitle, setSelectedTitle] = useState("");
+function AppContent() {
+  // getting the data
+  const storedProjects = JSON.parse(
+    localStorage.getItem("storedProjects" || [])
+  );
+  const StoredSelectedTitle = JSON.parse(
+    localStorage.getItem("selectedTitle" || "")
+  );
+
+  // active data
+
+  const [selectedTitle, setSelectedTitle] = useState(StoredSelectedTitle || "");
   const [isAdding, setIsAdding] = useState();
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState(storedProjects || []);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+
+  // storing the data
+  localStorage.setItem("storedProjects", JSON.stringify(projects));
+  localStorage.setItem("selectedTitle", JSON.stringify(selectedTitle));
+
+  // styles
+
+  const mainContentStyle = {
+    background:
+      theme.mode === "dark" ? "rgba(24,28,42,0.85)" : "rgba(244,244,245,0.85)",
+  };
+
+  //
+  //  functions
 
   function handleActiveProject(title) {
     setSelectedTitle(title);
+    setSidebarOpen(false);
   }
+
   function handleSaving() {
     setIsAdding(false);
   }
+
   function handleAdding() {
     setIsAdding(true);
+    setSidebarOpen(false);
+  }
+
+  function handleSidebarToggle() {
+    setSidebarOpen((open) => !open);
   }
 
   function handleAddingProject(newProject) {
     setProjects((prevProjects) => [...prevProjects, newProject]);
   }
+
+  function handleRemovingProject(curProject) {
+    setProjects((prevProjects) =>
+      prevProjects.filter((project) => curProject !== project)
+    );
+    setSelectedTitle("");
+  }
+
   function handleTasks(newTasks, title) {
     let updatedProjects = [...projects];
-
-    for (const project of updatedProjects) {
+    updatedProjects.forEach((project) => {
       if (project.title === title) {
         project.tasks = newTasks;
       }
-    }
-    setProjects(updatedProjects);
-  }
+    });
 
-  let selectedProject = selectProject(projects, selectedTitle);
+    setProjects(updatedProjects);
+
+    return selectProject(projects, selectedTitle);
+  }
+  function handleTheme() {
+    toggleTheme();
+  }
 
   return (
     <>
-      <div className="flex flex-row w-full gap-10 pt-12 pr-12 mx-auto ">
-        <div className="w-1/3 h-screen pt-16 text-white bg-black rounded-tr-3xl">
-          <h1 className="w-full text-4xl font-bold px-7 "> Your Projects</h1>
+      <Header
+        handleSidebarToggle={handleSidebarToggle}
+        toggleTheme={handleTheme}
+      />
 
-          <button
-            className="px-3 py-2 mx-16 bg-gray-700 rounded mt-7 hover:bg-gray-500"
-            onClick={handleAdding}
-          >
-            + Add Projects
-          </button>
+      <div
+        className={`flex flex-row w-full min-h-screen transition-colors duration-300`}
+        style={{ background: theme.background }}
+      >
+        {/* Sidebar */}
 
-          <ul className="flex flex-col w-full gap-1 mx-16 mt-5 text-xl text-gray-400">
-            {projects.map((project, index) => (
-              <li
-                key={index}
-                onClick={() => handleActiveProject(project.title)}
-                className={
-                  selectedTitle === project.title
-                    ? "text-white"
-                    : "text-gray-400"
-                }
-              >
-                {project.title}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <SideBar
+          selectedTitle={selectedTitle}
+          projects={projects}
+          handleAdding={handleAdding}
+          handleActiveProject={handleActiveProject}
+          handleSidebarToggle={handleSidebarToggle}
+          sidebarOpen={sidebarOpen}
+        />
 
-        <div className="flex items-center content-center w-2/3 h-screen ">
+        {/* Main Content Area */}
+        <div
+          className="flex items-center justify-center flex-1 min-h-screen  md:p-16 transition-colors duration-300 max-w-6xl mx-auto"
+          style={mainContentStyle}
+        >
           {selectedTitle === "" && !isAdding && (
             <NoProject handleAdding={handleAdding} />
           )}
@@ -85,7 +131,11 @@ function App() {
             />
           )}
           {selectedTitle !== "" && !isAdding && (
-            <Project project={selectedProject} handleTasks={handleTasks} />
+            <Project
+              project={selectProject(projects, selectedTitle)}
+              handleTasks={handleTasks}
+              removeProject={handleRemovingProject}
+            />
           )}
         </div>
       </div>
@@ -93,17 +143,12 @@ function App() {
   );
 }
 
-export default App;
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
+  );
+}
 
-// {
-//     title: "learn react",
-//     date: "Dec 24, 2025",
-//     discription: "star with the basic and to the advance concepts.",
-//     tasks: ["learn the first", "learn the first", "learn the first"],
-//   },
-//   {
-//     title: "run all the way",
-//     date: "Jan 13, 2050",
-//     discription: "star with the basic and to the advance concepts.",
-//     tasks: ["learn the second", "learn the second", "learn the second"],
-//   }
+export default App;
