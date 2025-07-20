@@ -2,7 +2,7 @@
 
 A modern, browser-based productivity tool to manage your projects and tasks — built with React and Tailwind CSS.
 
-🔗 **Live Demo:** [projectmanager-bysapientia.netlify.app](https://projectmanager-bysapientia.netlify.app/)
+🔗 **Live Demo:** [here](https://projectmanager-bysapientia.netlify.app/)
 
 ---
 
