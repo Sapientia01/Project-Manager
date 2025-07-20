@@ -20,7 +20,7 @@ A modern, browser-based productivity tool to manage your projects and tasks — 
 
 | No Project View | Project View | New Project View |
 |-----------------|--------------|------------------|
-| ![No Project View](./Screenshoots/no-project-view.png) | ![Project View](./Screenshoots/project-view.png) | ![New Project View](./Screenshoots/new-project-view.png) |
+| ![No Project View](./Screenshoots/no-project-view.png) | ![Project View](./Screenshoots/project-view.png) | ![New Project View](./Screenshoots/add-project-view.png) |
 
 ---
 
